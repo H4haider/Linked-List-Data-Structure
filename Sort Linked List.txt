@@ -1,0 +1,15 @@
+void sortLL() {
+	int count = this->getlength();
+	
+	for (int i = 0; i < count-1; i++) {
+		Node* curr = head;
+		for (int j = 0; j < count - i-1; j++) {
+			if (curr->data > curr->next->data) {
+				int temp = curr->data;
+				curr->data = curr->next->data;
+				curr->next->data = temp;
+			}
+			curr = curr->next;
+		}
+	}
+}

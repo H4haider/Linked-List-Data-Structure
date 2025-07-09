@@ -1,0 +1,23 @@
+int main()
+{
+	myLL l1;
+	l1.addtotail(1);
+	l1.addtotail(2);
+	l1.addtotail(2);
+	l1.addtotail(3);
+	l1.addtotail(1);
+
+	myLL l2;
+
+	while (!l1.isEmpty())
+	{
+		int val = l1.deletefromhead();
+		if (!l2.search(val))
+			l2.addtotail(val);
+	}
+	l1 = l2;
+	cout << "After removing duplicates:" << endl;
+	l1.display();
+
+	return 0;
+}

@@ -1,0 +1,34 @@
+int checkifwon(MyLL& list) {
+    MyLL original = list.createcopy();
+    MyLL reversed;
+
+    int sum = 0;
+    int digitcount = 0;
+
+    while (!list.isempty()) {
+        int digit = list.deletefromhead();
+        sum += digit;
+        digitcount++;
+        reversed.insertathead(digit); 
+    }
+
+    
+    bool palindrome = true;
+    while (!original.isempty() && !reversed.isempty()) {
+        int d1 = original.deletefromhead();
+        int d2 = reversed.deletefromhead();
+        if (d1 != d2) {
+            palindrome = false;
+            break;
+        }
+    }
+
+    if (palindrome && digitcount == 4 && sum > 20)
+        return 3000;
+    else if (palindrome)
+        return 2000;
+    else if (digitcount == 4 && sum > 20)
+        return 1000;
+    else
+        return 0;
+}
